@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: /Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.aux
+The style file: ../emnlp_natbib.bst
+Database file #1: ../emnlp2017.bib
+Repeated entry---line 204 of file ../emnlp2017.bib
+ : @inproceedings{chen2015event
+ :                             ,
+I'm skipping whatever remains of this entry
+You've used 25 entries,
+            2936 wiz_defined-function locations,
+            733 strings with 9077 characters,
+and the built_in function-call counts, 19802 in all, are:
+= -- 1555
+> -- 1001
+< -- 26
++ -- 338
+- -- 303
+* -- 1356
+:= -- 2827
+add.period$ -- 116
+call.type$ -- 25
+change.case$ -- 260
+chr.to.int$ -- 25
+cite$ -- 25
+duplicate$ -- 1561
+empty$ -- 1501
+format.name$ -- 376
+if$ -- 4139
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 304
+newline$ -- 129
+num.names$ -- 100
+pop$ -- 687
+preamble$ -- 1
+purify$ -- 201
+quote$ -- 0
+skip$ -- 596
+stack$ -- 0
+substring$ -- 865
+swap$ -- 780
+text.length$ -- 19
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 225
+warning$ -- 0
+while$ -- 129
+width$ -- 0
+write$ -- 331
+(There was 1 error message)
