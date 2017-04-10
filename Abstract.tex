@@ -1,19 +1,19 @@
 \begin{abstract}
-Existing event extraction systems are typically constructed using supervised
-learning. The effectiveness of these systems heavily rely on the quality of
-expert-annotated datasets. However, the current approach of corpora construction
-remains a manual, time-consuming process.  As a result, the generated datasets
-often only cover a limited class of event types, making the
-learned extractor hard to generalize. In this paper, we address the problem
-of how to automatic construct training datasets of rich event types. We achieve this by
-employing distant supervision to automatically extract events from
-unlabelled data using structured knowledge bases. We propose a novel
-neural network with ILP-based post inference, committing to handling two
-challenges in event extraction: multi-type events and multi-word arguments.
-\FIXME{We evaluate our approach by applying it to ...}. Both automatic and
+Existing event extraction systems are typically investigated in supervised
+learning paradigm. The effectiveness of these systems heavily relies on the quality of
+expert-annotated datasets, which still require a costly and time-consuming construction
+process.  As a result, the built datasets
+often only cover a limited variaty of event types, making the
+learned event extractor hard to generalize. In this paper, we address the problem
+of automatically building event extractors for rich event types without much expert involvment. 
+We achieve this by employing distant supervision to automatically create event annotations from
+unlabelled data using structured knowledge bases. We then propose a novel
+neural network model with ILP-based inference, committing to detecting events of various types and extracting
+the corresponding event arguments involved.
+We evaluate our approach by automatically collecting trainding data for many event types from Freebase, where 
+our proposed extraction model is designed to identify both typed event mentions and typed arguments. Both automatic and
 manual evaluations demonstrate that it is possible to learn to effectively extract
-various  events without
-human-annotated training data.
+various events without human-annotated training data.
 
 %
 %and rely on expert-annotated datasets, with limited event types.
