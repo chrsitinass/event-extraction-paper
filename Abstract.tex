@@ -5,12 +5,12 @@ expert-annotated datasets, which still require a costly and time-consuming const
 process.  As a result, the built datasets
 often only cover a limited variaty of event types, making the
 learned event extractor hard to generalize. In this paper, we address the problem
-of automatically building event extractors for rich event types without much expert involvment. 
+of automatically building event extractors for rich event types with little expert involvment.
 We achieve this by employing distant supervision to automatically create event annotations from
 unlabelled data using structured knowledge bases. We then propose a novel
 neural network model with ILP-based inference, committing to detecting events of various types and extracting
 the corresponding event arguments involved.
-We evaluate our approach by automatically collecting trainding data for many event types from Freebase, where 
+We evaluate our approach by automatically collecting trainding data for many event types from Freebase, where
 our proposed extraction model is designed to identify both typed event mentions and typed arguments. Both automatic and
 manual evaluations demonstrate that it is possible to learn to effectively extract
 various events without human-annotated training data.
@@ -29,4 +29,4 @@ various events without human-annotated training data.
 %We further propose a novel neural network with ILP-based post inference, committing to
 %handling two challenges in event extraction: multi-type events and multi-word arguments.
 %Both automatic and manual evaluations demonstrate that it is possible to learn to extract various  events, according to existing knowledge bases, without human-annotated training data.
-\end{abstract} 
+\end{abstract}
