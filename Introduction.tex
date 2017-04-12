@@ -6,16 +6,24 @@
 %or, \textit{ex} in \textit{ex-husband} triggers a \emph{divorce} event?
 %Besides, ACE event extraction systems have two major limitations:   single-token trigger labeling, and one type for one event.
 
-Event extraction, as represented by the Automatic Content Extraction (ACE) task, is a key enabling 
+Event extraction, as represented by the Automatic Content Extraction (ACE) task, is a key enabling
 technique for many natural language processing (NLP) applications.  Current event extractors are typically built through applying supervised learning to learn over labelled datasets. This means that the performance of event extraction systems highly dependent on the quality of the training datasets.
 
-Constructing high-quality training data for event extraction is, however, an expensive and error-prone process. This requires the involvement of linguists to design annotation templates and rules, and the employment of annotators to manually label data. Despite much progress has been made, existing event extraction systems have two major drawback: (1) they can only handle single-token triggers and (2)  each event can only be associated with one single type.
+Constructing high-quality training data for event extraction is, however, an expensive and error-prone process. This requires the involvement of linguists to design annotation templates and rules, and the employment of annotators to manually label data. To scale up the event extraction systems, we would like to reduce expert involvement.
+Futhermore, existing event extraction systems have two major drawback: (1) they can only handle single-token triggers\footnote{In the ACE task, a trigger is the word that most clearly expresses the occurrence of an event.} and (2) they only support scenarios where  each event is merely associated with a single type.
+To make event extractors more practical, we need to support scenarios where the trigger annotations are unavailable or events with more than one type. 
 
 
 %The aforementioned drawbacks of ACE event extraction systems motivate us to
-It would be interesting to see (1) can we automatically build a dataset for event extraction without experts involved?
-and (2) can we have an event extractor that handles more realistic scenarios, e.g.,  when trigger annotations are unavailable, or events with more than one type.
+%It would be interesting to see (1) can we automatically build a dataset for event extraction without experts involved?
+%and (2) can we have an event extractor that handles more realistic scenarios, e.g.,  when trigger annotations are unavailable, or events with more than one type.
 
+
+This paper presents a novel approach for automatic training data generation, specifically targeting event extraction. Our approach has two advantages over prior work\FIXME{\cite{}}. Firstly, it significantly reduces the expert involvement as it does not rely on expert-annotated texts. Secondly, it supports multi-typed events. The automatic event extraction is achieved by employing distant supervision to automatically annotate event structures from plain text, using information extracted from existing structured knowledge bases such as Freebase. To support multi-typed event extraction, we propose a novel neural network model with ILP-based inference to extract multiple event types without explicit trigger annotations.
+
+
+
+Our key insights are described as follows.
 First, we observe that structured knowledge bases (KB) often organize
 %we draw the inspiration from our observations on knowledge base (KB). A knowledge base
 complex structured information in tables, which share similar structures with ACE event definitions. A particular entry of such tables usually implies the occurrence of certain events.
