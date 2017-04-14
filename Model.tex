@@ -1,15 +1,4 @@
 \section{Our Approach}
-Existing works in event extraction rely on explicit trigger identification to detect the occurrence of an event, 
-which is crucial to later decide its event type and label its arguments.
-%   classify different event types,
-In our automatically collected dataset, where human-labeled event triggers are unavailable, 
-we argue that 
-\textbf{key arguments} can play the same role as explicit event triggers. We thus treat the event extraction as a pipeline of two subtasks, namely, event detection and argument detection. 
-
-\textbf{Event detection} aims to identify key arguments in a sentence. If a sentence contains \textbf{all} key arguments of a specific event type, it will be considered to imply an event of the corresponding type. Take S1 as an example, \emph{Remedy Corp}, \emph{BMC Software}, and \emph{2004} could be identified as \emph{company\_acquired}, \emph{acquiring\_company}, and \emph{date}, respectively,  indicating that  S1 may  mention  a  \emph{business.acquisition} event.  
-
-\textbf{Argument detection} aims to identify other non-key arguments for each event in the sentence. For the \emph{business.acquisition} event in S1, \emph{Service Management Business Unit} should be identified as \emph{divisions\_formed}.
-
 \subsection{Event Detection \label{evede}}
 %Before presenting our model, 
 Next, we first present our solution for multi-words arguments, and then introduce each component in our model.

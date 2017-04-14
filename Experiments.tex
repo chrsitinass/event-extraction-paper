@@ -11,41 +11,49 @@ We use Freebase and the English Wikipedia dump of 2016-11-20, to construct our d
 \emph{\#Eve.} & 4918 & 1247 & 1229 \\ \hline
 \emph{\#Arg.} & 17274 & 4318 & 4248 \\ \hline
 \emph{\%Multi\_Eve.} & 3.0 & 3.2 & 3.1 \\ \hline
-\emph{\%Multi\_Arg.} & 67.4 & 67.0 & 67.9 \\ \hline
+% \emph{\%Multi\_Arg.} & 67.4 & 67.0 & 67.9 \\ \hline
 \end{tabular}	
-\caption{Statistics for the generated dataset. \emph{\#Sent.} is the number of sentences, \emph{\#Eve.} is the number of event mentions, and \emph{\#Arg.} is the number of event arguments. \emph{\%Multi\_Eve.} is the ratio of multi-type events, and \emph{\%Multi\_Arg.} is the ratio of multi-word arguments.\label{statistics}}
+\caption{Statistics for the generated dataset. \emph{\#Sent.} is the number of sentences, \emph{\#Eve.} is the number of event mentions, and \emph{\#Arg.} is the number of event arguments. \emph{\%Multi\_Eve.} is the ratio of multi-type events.
+%, and \emph{\%Multi\_Arg.} is the ratio of multi-word arguments.
+\label{statistics}}
 \end{table}
 % containing 7,180 sentences, containing 7,394 events and 25,840 arguments. We then randomly select 4,800 sentences for training and 1,180 sentences as test set, and the rest 1,200 sentences for validation. 
-We conduct both automatic evaluation and manual evaluation in our experiments. We first manually evaluate the quality of our test set. And then, we regard the automatically generated data as gold standard and evaluate our model accordingly. Finally, we manually evaluate a subset of events detected by our model and analyze the differences with regards to the automatic evaluation.
+We first manually evaluate the quality of our test set and then regard the automatically generated data as gold standard and evaluate our model accordingly. Next, we manually evaluate a subset of events detected by our model and analyze the differences with regards to the automatic evaluation. Finally, we conduct evaluation on a smaller dataset annotated by tables crawled from Wikipedia's pages. 
 
 \paragraph{Evaluation Measures} We evaluate our models in terms of precision (P), recall (R), and F-measure (F) for each subtask. These performance metrics are computed according to the following standards of correctness: 
-\begin{itemize}
-	\item For event type classification, an event is correctly classified if its reference sentence contains all key arguments of this event type. 
-	\item For argument detection, an argument is correctly detected if its offsets, role, and related event type exactly match the reference argument within the same sentence. 
-	\item For event detection, an event is correctly detected if its type and all its key arguments match a reference event within the same sentence.
-\end{itemize}
+For \emph{event type classification}, an event is correctly classified if its reference sentence contains all key arguments of this event type. 
+For \emph{argument detection}, an argument is correctly detected if its offsets, role, and related event type exactly match the reference argument within the same sentence. 
+For \emph{event detection}, an event is correctly detected if its type and all its key arguments match a reference event within the same sentence.
 
 \paragraph{Training} All hyper-parameters are tuned on the development set. In event detection, we set the size of word embeddings to 200, the size of LSTM layer to 100. In argument detection, we use the same size of word embedding, while the size of LSTM layer is 150, and the size of key argument embedding is 50. Word embeddings are pre-trained using skip-gram word2vec~\cite{mikolov2013distributed} on English Wikipedia pages and fine tuned during training. To mitigate overfitting, we apply a dropout rate of 0.5 on both the input and output layers.
 
 \subsection{Dataset Evaluation}\label{sec:evalhypo}
-To investigate the possibility of automatically constructing training data for event extraction, we evaluate five datasets that utilize different hypotheses to collect positive sentences from Wikipedia pages. We randomly select 100 sentences in each dataset, and annotators are asked to determine whether a sentence implies a given event.
+To investigate the possibility of automatically constructing training data for event extraction, we evaluate five datasets that utilize different strategies to collect positive sentences from Wikipedia pages. We randomly select 100 sentences in each dataset, and annotators are asked to determine whether each sentence implies a given event.
 
+% 怎么介绍Strategy比较省地方？
 \begin{table}[h]
 \small
 \centering
-\begin{tabular}{|l|c|c|c|c|c|} \hline
-	Hypothesis & H1 & H2 & H2+H4 & H3 & H3+H4 \\ \hline
-	Instances & 0.3M & 3.6M & 3.6M & 1.3M & 1.3M \\ \hline
-	Dataset & 203 & 108K & 12K & 9241 & 7180 \\ \hline
-	Event type & 9 & 24 & 24 & 24 & 24 \\ \hline
-	Correct (\%) & 98 & 22 & 37 & 81 & 89 \\ \hline
+\begin{tabular}{|c|l|c|c|c|} \hline
+	No. & Strategy & Dataset & Type & Pos \\ \hline
+	S1 & ALL & 203 & 9 & 98 \\ \hline
+	S2 & KEY w/o TIME & 108K & 24 & 22 \\ \hline
+	S3 & KEY w/o TIME w/ DIS & 12K & 24 & 37 \\ \hline
+	S4 & KEY & 9241 & 24 & 81 \\ \hline
+	S5 & KEY w/ DIS & 7180 & 24 & 89 \\ \hline
+	% Instances & 0.3M & 3.6M & 3.6M & 1.3M & 1.3M \\ \hline
+	% Dataset & 203 & 108K & 12K & 9241 & 7180 \\ \hline
+	% Event type & 9 & 24 & 24 & 24 & 24 \\ \hline
+	% Correct (\%) & 98 & 22 & 37 & 81 & 89 \\ \hline
 \end{tabular}
-\caption{Statistic of the datasets built with different hypotheses. \textit{Instances} denotes the number of CVT instances that can be used for each hypothesis.  \textit{Dataset} is the number of sentences found.  \textit{Event type} indicates the number of different CVT types in each dataset.  \textit{Correct} is the percentage of sentences mentioning the given events explicitly. \label{tab:3}}
+\caption{Statistic of the datasets built with different strategies. 
+% \textit{Instances} denotes the number of CVT instances that can be used for each hypothesis. 
+\textit{Dataset} is the number of sentences found. \textit{Type} indicates the number of different CVT types in each dataset.  \textit{Pos} is the percentage of sentences mentioning the given events explicitly. \label{tab:3}}
 \end{table}
 
-As shown in Table~\ref{tab:3}, it is not surprising that the most strict hypothesis, \emph{H1}, guarantees the quality of the generated data, while we can merely obtain 203 sentences covering 9 types of events,  which is insufficient for further applications. \emph{H2} relaxes \emph{H1} by allowing the absence of non-key arguments, which  expands the resulting dataset, but introduces more noise into the dataset. 
-This side effect indicates that \emph{H2} is inappropriate to be used as a soft constraint. Compared with \emph{H2}, the significant improvement in the quality of sentences collected by \emph{H3} proves that time-related properties within CVT schemas are critical to imply an event occurrence. Among all hypotheses,  data obtained by a combination of \emph{H3} and \emph{H4} achieves the highest precision, while still accounting for 7,180 sentences, showing that it is feasible to automatically collect quality training data for event extraction without either human-designed event schemas or extra human annotations.     
-%our hypothesis \emph{H3} and \emph{H4} are feasible and it is an effective way to generate reliable data automatically.
+As shown in Table~\ref{tab:3}, it is not surprising that the most strict strategy, \emph{S1}, guarantees the quality of the generated data, while we can merely obtain 203 sentences covering 9 types of events, which is insufficient for further applications. \emph{S2} relaxes \emph{S1} by allowing the absence of non-key arguments, which expands the resulting dataset, but introduces more noise into the dataset. 
+This side effect indicates that \emph{S2} is inappropriate to be used as a soft constraint. Compared with \emph{S2}, the significant improvement in the quality of sentences collected by \emph{S3} proves that time-related arguments within CVT schemas are critical to imply an event occurrence. Among all strategies, data obtained by \emph{S5} achieves the highest precision, while still accounting for 7,180 sentences, showing that it is feasible to automatically collect quality training data for event extraction without either human-designed event schemas or extra human annotations.     
+% our hypothesis \emph{H3} and \emph{H4} are feasible and it is an effective way to generate reliable data automatically.
 
 \subsection{Baselines}
 %To investigate the effectiveness of our proposed model, 
@@ -79,8 +87,8 @@ And the CRF component brings an averagely 4\% improvement in all metrics, and by
 \caption{Overall system performance of automatic evaluations. (\%) \label{tab:1}}
 \end{table*}
 
-\paragraph{Multi-word Argument Detection}
-Committing to the multi-word argument issue, we treat each subtask as a sequence labeling problem. Evaluated on multi-word arguments, the F1 scores of LSTM-CRF, LSTM-CRF-ILP$_1$ and LSTM-CRF-ILP$_{multi}$ in argument detection are 71.3\%, 80.5\%, and 81.0\%, respectively. 
+% \paragraph{Multi-word Argument Detection}
+% Committing to the multi-word argument issue, we treat each subtask as a sequence labeling problem. Evaluated on multi-word arguments, the F1 scores of LSTM-CRF, LSTM-CRF-ILP$_1$ and LSTM-CRF-ILP$_{multi}$ in argument detection are 71.3\%, 80.5\%, and 81.0\%, respectively. 
 
 \paragraph{Effect of CRF Layer} 
 Every model which has a CRF layer over its LSTM output layer is superior to the one with a simple LSTM layer. Compared with LSTM model, LSTM-CRF achieves higher precisions and recalls in all subtasks by significantly reducing the invalid labeling sequences (e.g., \texttt{I-arg} appears right after \texttt{O}). During prediction, instead of tagging each token independently, LSTM-CRF takes into account the constraints between neighbor labels, and increases the cooccurrences of key arguments with regard to the same event type in some way. 
@@ -140,3 +148,6 @@ Remarkably, our LSTM-CRF-ILP$_{multi}$ model can help find more CVT instances th
 \caption{Top 5 event types whose performances on event classification differ most from automatic evaluation. The evaluated model is LSTM-CRF-ILP$_{multi}$ \label{tab:4}}
 \end{table}
 
+\subsection{Tables as Supervision}
+% it limits the applicability of the approach to Freebase only
+% To demonstrate the portability of our approach to a common domain, 
