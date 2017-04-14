@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.19)  14 APR 2017 09:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.19)  14 APR 2017 16:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -485,22 +485,18 @@ Underfull \hbox (badness 1354) in paragraph at lines 63--70
 \OT1/ptm/m/n/10.95 mul-ti-ple op-ti-mal se-quences. Specif-i-cally, af-
  []
 
-) (./Experiments.tex
-Overfull \hbox (0.82152pt too wide) in paragraph at lines 37--51
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5]
+) (./Experiments.tex [5]
 Underfull \hbox (badness 1253) in paragraph at lines 60--64
 \OT1/ptm/m/n/10.95 We com-pare our pro-posed mod-els with three
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
-[6] <example.png, id=169, 697.60625pt x 350.30875pt>
+[6]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<example.png, id=168, 697.60625pt x 350.30875pt>
 File: example.png Graphic file (type png)
  <use example.png>
 Package pdftex.def Info: example.png used on input line 124.
@@ -510,7 +506,12 @@ Underfull \hbox (badness 2856) in paragraph at lines 125--125
 []\OT1/ptm/m/n/10.95 Figure 3: []Example out-puts of LSTM-CRF-
  []
 
-[7 <./example.png>]) (./Related.tex
+[7 <./example.png>]
+Overfull \hbox (7.97432pt too wide) in paragraph at lines 157--163
+ [][] 
+ []
+
+) (./Related.tex
 Underfull \hbox (badness 3364) in paragraph at lines 3--12
 \OT1/ptm/m/n/10.95 Most event ex-trac-tion works are within the
  []
@@ -520,14 +521,12 @@ Underfull \hbox (badness 1281) in paragraph at lines 3--12
 \OT1/ptm/m/n/10.95 (e.g., MUC ([][]Gr-ish-man and Sund-heim[][], [][]1996[][]),
  []
 
-) (./Conclusion.tex) (/Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.bbl
+[8]) (./Conclusion.tex) (/Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 31--35
 \OT1/ptm/m/n/10 Karlen, Ko-ray Kavukcuoglu, and Pavel Kuksa.
  []
 
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 35.
-[8]
+
 Underfull \hbox (badness 3758) in paragraph at lines 61--64
 []\OT1/ptm/m/n/10 Sepp Hochre-iter and J[]urgen Schmid-hu-ber. 1997.
  []
@@ -542,9 +541,13 @@ Underfull \hbox (badness 2418) in paragraph at lines 90--94
 []\OT1/ptm/m/n/10 John Laf-ferty, An-drew Mc-Cal-lum, and Fer-nando
  []
 
-)
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 141.
+[9])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 61.
- [9]
+ [10
+
+]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 61.
  (/Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 61.
@@ -555,18 +558,18 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 61.
  )
 (\end occurred when \iffalse on line 337 was incomplete) 
 Here is how much of TeX's memory you used:
- 7609 strings out of 493089
- 109086 string characters out of 6134842
- 226801 words of memory out of 5000000
- 10844 multiletter control sequences out of 15000+600000
+ 7613 strings out of 493089
+ 109118 string characters out of 6134842
+ 227040 words of memory out of 5000000
+ 10846 multiletter control sequences out of 15000+600000
  45401 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,37p,928b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,37p,928b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.pdf (9 pages, 551888 bytes).
+Output written on /Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.pdf (10 pages, 555197 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
- 270 compressed objects within 3 object streams
- 81 named destinations out of 1000 (max. 500000)
+ 316 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 83 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
