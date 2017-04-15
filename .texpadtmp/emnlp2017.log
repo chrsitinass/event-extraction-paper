@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.19)  15 APR 2017 10:41
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.19)  15 APR 2017 12:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -424,8 +424,8 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 17.
-File: temp.png Graphic file (type QTm)
- <use  "temp.png" >
+File: temp_figure1.png Graphic file (type QTm)
+ <use  "temp_figure1.png" >
 Underfull \hbox (badness 10000) in paragraph at lines 35--35
 [][][]\OT1/ptm/m/n/9 For ex-am-ple, [][]$\OT1/pcr/m/n/9 https : / / en . wikipedia . org /
  []
@@ -462,8 +462,8 @@ Underfull \hbox (badness 3557) in paragraph at lines 78--82
 []\OT1/ptm/m/n/10.95 Although time-related ar-gu-ments are of-ten
  []
 
-File: deppath3.eps Graphic file (type eps)
-<deppath3.eps>) (./Model.tex
+File: temp_figure2.png Graphic file (type QTm)
+<use  "temp_figure2.png" >) (./Model.tex
 Underfull \hbox (badness 1019) in paragraph at lines 12--15
 \OT1/ptm/m/n/10.95 men-tion a \OT1/ptm/m/it/10.95 busi-ness.acquisition \OT1/ptm/m/n/10.95 event. Dur-ing
  []
@@ -489,8 +489,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: figure3.eps Graphic file (type eps)
-<figure3.eps>
+File: temp_figure3.png Graphic file (type QTm)
+<use  "temp_figure3.png" >
 Overfull \hbox (3.98598pt too wide) in paragraph at lines 124--125
  [][] 
  []
@@ -557,7 +557,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
 (\end occurred when \iffalse on line 337 was incomplete) 
 Here is how much of TeX's memory you used:
  10507 strings out of 493706
- 145216 string characters out of 6145769
+ 145250 string characters out of 6145769
  241373 words of memory out of 5000000
  13695 multiletter control sequences out of 15000+600000
  29146 words of font info for 95 fonts, out of 8000000 for 9000
