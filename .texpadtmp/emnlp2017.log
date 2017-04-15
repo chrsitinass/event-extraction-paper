@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.19)  15 APR 2017 12:41
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2016.5.19)  15 APR 2017 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -469,46 +469,36 @@ Underfull \hbox (badness 1019) in paragraph at lines 12--15
  []
 
 [3]
-Underfull \hbox (badness 1527) in paragraph at lines 28--29
+Underfull \hbox (badness 1527) in paragraph at lines 28--30
  []\OT1/ptm/b/n/10.95 BLSTM \OT1/ptm/m/n/10.95 Long Short-Term Mem-ory Net-work
  []
 
 [4]
-Underfull \hbox (badness 1354) in paragraph at lines 78--85
+Underfull \hbox (badness 1354) in paragraph at lines 79--86
 \OT1/ptm/m/n/10.95 mul-ti-ple op-ti-mal se-quences. Specif-i-cally, af-
  []
 
 ) (./Experiments.tex [5]
-Underfull \hbox (badness 1253) in paragraph at lines 60--64
-\OT1/ptm/m/n/10.95 We com-pare our pro-posed mod-els with three
- []
-
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
+
+Underfull \hbox (badness 1472) in paragraph at lines 96--97
+\OT1/ptm/m/n/10.95 the over-all sys-tem per-for-mance, es-pe-cially in
+ []
+
 [6]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: temp_figure3.png Graphic file (type QTm)
-<use  "temp_figure3.png" >
-Overfull \hbox (3.98598pt too wide) in paragraph at lines 124--125
- [][] 
+ <use  "temp_figure3.png" >
+Underfull \hbox (badness 1242) in paragraph at lines 124--124
+[]\OT1/ptm/m/n/10.95 Figure 3: []Example out-puts of BLSTM-CRF-
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 125--125
-[]\OT1/ptm/m/n/10.95 Figure 3: []Example out-puts of LSTM-CRF-
+Underfull \hbox (badness 1303) in paragraph at lines 127--129
+\OT1/ptm/m/n/10.95 types whose EC F1 scores by BLSTM-CRF-
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7]
-Overfull \hbox (7.97432pt too wide) in paragraph at lines 157--163
- [][] 
- []
-
-) (./Related.tex
+[7]) (./Related.tex
 Underfull \hbox (badness 3364) in paragraph at lines 3--12
 \OT1/ptm/m/n/10.95 Most event ex-trac-tion works are within the
  []
@@ -518,10 +508,7 @@ Underfull \hbox (badness 1281) in paragraph at lines 3--12
 \OT1/ptm/m/n/10.95 (e.g., MUC ([][]Gr-ish-man and Sund-heim[][], [][]1996[][]),
  []
 
-) (./Conclusion.tex)
-Underfull \vbox (badness 6477) has occurred while \output is active []
-
- [8] (/Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.bbl
+) (./Conclusion.tex) [8] (/Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.bbl
 Underfull \hbox (badness 1655) in paragraph at lines 31--35
 \OT1/ptm/m/n/10 Karlen, Ko-ray Kavukcuoglu, and Pavel Kuksa.
  []
@@ -541,13 +528,9 @@ Underfull \hbox (badness 2418) in paragraph at lines 90--94
 []\OT1/ptm/m/n/10 John Laf-ferty, An-drew Mc-Cal-lum, and Fer-nando
  []
 
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 149.
-[9])
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 68.
- [10
-
-]
+ [9]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 68.
  (/Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 68.
@@ -556,12 +539,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
  )
 (\end occurred when \iffalse on line 337 was incomplete) 
 Here is how much of TeX's memory you used:
- 10507 strings out of 493706
- 145250 string characters out of 6145769
- 241373 words of memory out of 5000000
- 13695 multiletter control sequences out of 15000+600000
- 29146 words of font info for 95 fonts, out of 8000000 for 9000
+ 10489 strings out of 493706
+ 144996 string characters out of 6145769
+ 241217 words of memory out of 5000000
+ 13681 multiletter control sequences out of 15000+600000
+ 26760 words of font info for 85 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 43i,10n,37p,928b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,14n,37p,998b,372s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.pdf (10 pages).
+Output written on /Users/christina/Downloads/emnlp17-latex/.texpadtmp/emnlp2017.pdf (9 pages).

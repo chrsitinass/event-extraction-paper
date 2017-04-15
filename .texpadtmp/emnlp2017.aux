@@ -36,17 +36,16 @@
 \citation{gurobi}
 \citation{mikolov2013distributed}
 \newlabel{statistics}{{1}{5}{Statistics for the generated dataset. \emph {\#Sent.} is the number of sentences, \emph {\#Eve.} is the number of event mentions, and \emph {\#Arg.} is the number of event arguments. \emph {\%Multi\_Eve.} is the ratio of multi-type events}{table.1}{}}
-\newlabel{sec:evalhypo}{{4.2}{5}{Dataset Evaluation}{subsection.4.2}{}}
+\newlabel{sec:evalhypo}{{4.1}{5}{Dataset Evaluation}{subsection.4.1}{}}
 \citation{lafferty2001conditional}
+\citation{kudo2005crf++}
 \citation{berger1996maximum}
 \citation{li2013joint}
-\citation{manning2014stanford}
-\citation{kudo2005crf++}
-\newlabel{tab:3}{{2}{6}{Statistic of the datasets built with different strategies. \textit {Dataset} is the number of sentences found. \textit {Type} indicates the number of different CVT types in each dataset. \textit {Pos} is the percentage of sentences mentioning the given events explicitly}{table.2}{}}
-\newlabel{tab:1}{{3}{7}{Overall system performance of automatic evaluations. (\%)}{table.3}{}}
-\newlabel{manualeve}{{4.5}{7}{Manual Evaluation}{subsection.4.5}{}}
-\newlabel{tab:2}{{4}{7}{Average of F1 scores of system performance of manual evaluations by two annotators. EC, AD, ED denote the event classification, argument detection and event detection, respectively}{table.4}{}}
-\newlabel{fig:1}{{3}{7}{Example outputs of LSTM-CRF-ILP$_{multi}$}{figure.3}{}}
+\newlabel{tab:3}{{2}{6}{Statistics of the datasets built with different strategies. \textit {Sent.} is the number of sentences found. \textit {Type} the number of different CVT types found within each dataset. \textit {Post.} is the percentage of sentences mentioning the given events explicitly}{table.2}{}}
+\newlabel{tab:1}{{3}{7}{Overall system performance of automatic evaluations (\%)}{table.3}{}}
+\newlabel{manualeve}{{4.4}{7}{Manual Evaluation}{subsection.4.4}{}}
+\newlabel{tab:2}{{4}{7}{The F1 scores of different systems on the manually annotated data. EC, AD, ED denote the event type classification, argument detection and event detection, respectively}{table.4}{}}
+\newlabel{fig:1}{{3}{7}{Example outputs of BLSTM-CRF-ILP$_{multi}$}{figure.3}{}}
 \citation{grishman1996message}
 \citation{doddington2004automatic}
 \citation{song2015light}
@@ -55,8 +54,8 @@
 \citation{chen2015event,nguyen2016joint}
 \citation{huang2016liberal}
 \citation{mintz2009distant}
-\newlabel{tab:4}{{5}{8}{Top 5 event types whose performances on event classification differ most from automatic evaluation. The evaluated model is LSTM-CRF-ILP$_{multi}$}{table.5}{}}
-\newlabel{tab:6}{{6}{8}{Statistics of the dataset and overall performance of our LSTM-CRF-ILP$_{multi}$ model. \textit {Table size} is the number of table entries. \textit {Dataset} is the size of training set}{table.6}{}}
+\newlabel{tab:4}{{5}{8}{The difference of EC F1 scores (by BLSTM-CRF-ILP$_{multi}$) between automatic and manual evaluation for top 5 event types}{table.5}{}}
+\newlabel{tab:6}{{6}{8}{Statistics of the Table dataset and performance of our model. \textit {Entr.} is the number of table entries. \textit {Sent.} is the size of training set}{table.6}{}}
 \bibdata{emnlp2017}
 \bibcite{ahn2006stages}{{1}{2006}{{Ahn}}{{}}}
 \bibcite{berger1996maximum}{{2}{1996}{{Berger et~al.}}{{Berger, Pietra, and Pietra}}}
@@ -75,12 +74,11 @@
 \bibcite{lafferty2001conditional}{{15}{2001}{{Lafferty et~al.}}{{Lafferty, McCallum, and Pereira}}}
 \bibcite{lample2016neural}{{16}{2016}{{Lample et~al.}}{{Lample, Ballesteros, Subramanian, Kawakami, and Dyer}}}
 \bibcite{li2013joint}{{17}{2013}{{Li et~al.}}{{Li, Ji, and Huang}}}
-\bibcite{manning2014stanford}{{18}{2014}{{Manning et~al.}}{{Manning, Surdeanu, Bauer, Finkel, Bethard, and McClosky}}}
-\bibcite{mikolov2013distributed}{{19}{2013}{{Mikolov et~al.}}{{Mikolov, Sutskever, Chen, Corrado, and Dean}}}
-\bibcite{mintz2009distant}{{20}{2009}{{Mintz et~al.}}{{Mintz, Bills, Snow, and Jurafsky}}}
-\bibcite{mitamura2015event}{{21}{2015}{{Mitamura et~al.}}{{Mitamura, Yamakawa, Holm, Song, Bies, Kulick, and Strassel}}}
-\bibcite{nguyen2016joint}{{22}{2016}{{Nguyen et~al.}}{{Nguyen, Cho, and Grishman}}}
-\bibcite{rabiner1989tutorial}{{23}{1989}{{Rabiner}}{{}}}
-\bibcite{song2015light}{{24}{2015}{{Song et~al.}}{{Song, Bies, Strassel, Riese, Mott, Ellis, Wright, Kulick, Ryant, and Ma}}}
-\bibcite{zeng2015distant}{{25}{2015}{{Zeng et~al.}}{{Zeng, Liu, Chen, and Zhao}}}
+\bibcite{mikolov2013distributed}{{18}{2013}{{Mikolov et~al.}}{{Mikolov, Sutskever, Chen, Corrado, and Dean}}}
+\bibcite{mintz2009distant}{{19}{2009}{{Mintz et~al.}}{{Mintz, Bills, Snow, and Jurafsky}}}
+\bibcite{mitamura2015event}{{20}{2015}{{Mitamura et~al.}}{{Mitamura, Yamakawa, Holm, Song, Bies, Kulick, and Strassel}}}
+\bibcite{nguyen2016joint}{{21}{2016}{{Nguyen et~al.}}{{Nguyen, Cho, and Grishman}}}
+\bibcite{rabiner1989tutorial}{{22}{1989}{{Rabiner}}{{}}}
+\bibcite{song2015light}{{23}{2015}{{Song et~al.}}{{Song, Bies, Strassel, Riese, Mott, Ellis, Wright, Kulick, Ryant, and Ma}}}
+\bibcite{zeng2015distant}{{24}{2015}{{Zeng et~al.}}{{Zeng, Liu, Chen, and Zhao}}}
 \bibstyle{emnlp_natbib}

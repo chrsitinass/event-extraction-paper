@@ -105,13 +105,6 @@ Qi~Li, Heng Ji, and Liang Huang. 2013.
   features.
 \newblock In {\em ACL 2013\/}. pages 73--82.
 
-\bibitem[{Manning et~al.(2014)Manning, Surdeanu, Bauer, Finkel, Bethard, and
-  McClosky}]{manning2014stanford}
-Christopher~D Manning, Mihai Surdeanu, John Bauer, Jenny~Rose Finkel, Steven
-  Bethard, and David McClosky. 2014.
-\newblock The stanford corenlp natural language processing toolkit.
-\newblock In {\em ACL 2014\/}. pages 55--60.
-
 \bibitem[{Mikolov et~al.(2013)Mikolov, Sutskever, Chen, Corrado, and
   Dean}]{mikolov2013distributed}
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean. 2013.

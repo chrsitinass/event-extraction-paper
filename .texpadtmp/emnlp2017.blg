@@ -8,45 +8,45 @@ Repeated entry---line 204 of file ../emnlp2017.bib
  :                             ,
 I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for ""
-You've used 25 entries,
+You've used 24 entries,
             2936 wiz_defined-function locations,
-            733 strings with 9077 characters,
-and the built_in function-call counts, 19802 in all, are:
-= -- 1555
-> -- 1001
-< -- 26
-+ -- 338
-- -- 303
-* -- 1356
-:= -- 2827
-add.period$ -- 116
-call.type$ -- 25
-change.case$ -- 260
-chr.to.int$ -- 25
-cite$ -- 25
-duplicate$ -- 1561
-empty$ -- 1501
-format.name$ -- 376
-if$ -- 4139
+            727 strings with 8862 characters,
+and the built_in function-call counts, 18868 in all, are:
+= -- 1485
+> -- 943
+< -- 25
++ -- 317
+- -- 285
+* -- 1289
+:= -- 2694
+add.period$ -- 111
+call.type$ -- 24
+change.case$ -- 247
+chr.to.int$ -- 24
+cite$ -- 24
+duplicate$ -- 1490
+empty$ -- 1436
+format.name$ -- 355
+if$ -- 3945
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 304
-newline$ -- 129
-num.names$ -- 100
-pop$ -- 687
+missing$ -- 290
+newline$ -- 124
+num.names$ -- 96
+pop$ -- 654
 preamble$ -- 1
-purify$ -- 201
+purify$ -- 191
 quote$ -- 0
-skip$ -- 596
+skip$ -- 570
 stack$ -- 0
-substring$ -- 865
-swap$ -- 780
-text.length$ -- 19
+substring$ -- 828
+swap$ -- 744
+text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 225
+type$ -- 216
 warning$ -- 0
-while$ -- 129
+while$ -- 123
 width$ -- 0
-write$ -- 331
+write$ -- 318
 (There was 1 error message)

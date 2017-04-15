@@ -25,7 +25,8 @@ which, together with the detected key arguments, form a full mention for a \emph
 
 % \vspace{-.7em}
 \paragraph{BLSTM}
-Long Short-Term Memory Network (LSTM)~\cite{hochreiter1997long} is a natural fit for sequence labeling, which maintains a memory based on historical contextual information. Formally, given a sentence $\bm{w} = \{w_1, w_2, \dots, w_n\}$ of length $n$, we use $\textbf{x}_t$ to represent feature vector, e.g., word embeddings, corresponding to the $t$-th word $w_t$. At each time step $t$, an LSTM unit takes $\textbf{x}_t$ as input and computes the output vector $\textbf{h}_t$ through several multiplicative gates. The output vector is fed into a softmax layer to estimate a probability distribution over all possible labels.
+Long Short-Term Memory Network (LSTM)~\cite{hochreiter1997long} is a natural fit for sequence labeling, which maintains a memory based on historical contextual information. Formally, given a sentence $\bm{w} = \{w_1, w_2, \dots, w_n\}$ of length $n$, we use $\textbf{x}_t$ to represent feature vector, e.g., word embeddings, corresponding to the $t$-th word $w_t$. 
+At each time $t$, a forward LSTM layer takes $\textbf{x}_t$ as input and computes the output vector $\overrightarrow{\textbf{h}}_t$ of the past context, while a backward LSTM layer reads the same sentence in reverse and outputs $\overleftarrow{\textbf{h}}_t$ given the future context. We concatenate these two vectors to form the output vector of BLSTM, which is fed into a softmax layer to estimate a probability distribution over all possible labels.
 
 % \vspace{-.8em}
 \paragraph{CRF}
@@ -85,6 +86,6 @@ We use Gurobi~\cite{gurobi} as our ILP solver and set $\lambda=0.05 \times n$, w
 \subsection{Argument Detection}
 After event detection, a sentence will be classified into different event types, and labeled with its corresponding key arguments. 
 %The next step is argument detection, which 
-Next, we will identify the remaining non-key arguments in the sentence.  
+Next, we will identify the remaining non-key arguments in the sentence. 
 
 We adopt the same BLSTM-CRF architecture (in Sec~\ref{evede}) for argument detection, where we encode the event label (output of event detection) of each word into a key-argument feature vector through a look-up table, and concatenate it with the original word embedding as the input to the new BLSTM-CRF. Note that we do not need post inference here.
