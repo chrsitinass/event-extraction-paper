@@ -16,7 +16,9 @@ We use Freebase and the English Wikipedia dump of 2016-11-20, to construct our d
 \caption{Statistics for the generated dataset. \emph{\#Sent.} is the number of sentences, \emph{\#Eve.} is the number of event mentions, and \emph{\#Arg.} is the number of event arguments. \emph{\%Multi\_Eve.} is the ratio of multi-type events.
 %, and \emph{\%Multi\_Arg.} is the ratio of multi-word arguments.
 \label{statistics}}
+\vspace{-0.5em}
 \end{table}
+
 % containing 7,180 sentences, containing 7,394 events and 25,840 arguments. We then randomly select 4,800 sentences for training and 1,180 sentences as test set, and the rest 1,200 sentences for validation. 
 We first manually evaluate the quality of our test set and then regard the automatically generated data as gold standard and evaluate our model accordingly. Next, we manually evaluate a subset of events detected by our model and analyze the differences with regards to the automatic evaluation. Finally, we conduct evaluation on a smaller dataset constructed according to Wikipedia tables and articles. 
 
@@ -48,7 +50,8 @@ To investigate the possibility of automatically constructing training data for e
 \end{tabular}
 \caption{Statistics of the datasets built with different strategies. 
 % \textit{Instances} denotes the number of CVT instances that can be used for each hypothesis. 
-\textit{Sent.} is the number of sentences found. \textit{Type} the number of different CVT types found within each dataset.  \textit{Post.} is the percentage of sentences mentioning the given events explicitly. \label{tab:3}}
+\textit{Sent.} is the number of sentences found. \textit{Type} the number of different CVT types found within each dataset.  \textit{Post.} is the percent of sentences mentioning the given events explicitly. \label{tab:3}}
+\vspace{-0.5em}
 \end{table}
 
 As shown in Table~\ref{tab:3}, it is not surprising that the most strict strategy, \emph{T1}, guarantees the quality of the generated data, while we can merely obtain 203 sentences covering 9 types of events, which is insufficient for further applications. \emph{T2} relaxes \emph{T1} by allowing the absence of non-key arguments, which expands the resulting dataset, but introduces more noise, indicating that \emph{T2} is inappropriate to be used as a soft constraint. Compared with \emph{T2}, the significant quality improvement by \emph{T4} proves that time-related arguments within CVT schemas are critical to imply an event occurrence. Among all strategies, data obtained by \emph{T5} achieves the highest precision, while still accounting for 7,180 sentences, showing that it is feasible to automatically collect quality training data for event extraction without either human-designed event schemas or \textbf{extra} human annotations.     
@@ -84,6 +87,7 @@ And the CRF component brings an averagely 4\% improvement in all metrics, and by
 	BLSTM-CRF-ILP$_{multi}$ & 93.2 & \textbf{81.9} & \textbf{87.2} &  74.0 & \textbf{71.5} & \textbf{72.7} & 49.5 & \textbf{43.5} & \textbf{46.3} \\ \hline
 \end{tabular}
 \caption{Overall system performance of automatic evaluations (\%).  \label{tab:1}}
+\vspace{-0.5em}
 \end{table*}
 
 % \paragraph{Multi-word Argument Detection}
@@ -99,7 +103,7 @@ As shown in Table~\ref{tab:1}, ILP-based post inference considerably improves th
 We further investigate the effect of BLSTM-CRF-ILP$_{multi}$, which is the only model that can deal with the mulit-type event mentions. As shown in Table~\ref{tab:1}, the proposed strategy in BLSTM-CRF-ILP$_{multi}$ helps detect more event mentions, contributing to the increase of recalls, and F1 scores with a little drop of precisions. Evaluated on 38 sentences containing multi-type event mentions, the F1 scores of BLSTM-CRF-ILP$_{multi}$ in event type classification, event detection and argument detection are 70.7\%, 58.4\% and 26.9\%, respectively. 
 
 \subsection{Manual Evaluation \label{manualeve}}
-We randomly sample 150 unlabeled sentences from the test set. Annotators are asked to annotate the events and arguments to each sentence following two steps. First, determine whether a given sentence is positive or negative, and assign event types to positive sentences. Next, label all related arguments and their roles according to the event types for positive sentences. Two annotators will independently annotate each sentence, and discuss to achieve an agreement. The inter-annotator agreement is 87\% for event types and 79\% for arguments.
+We randomly sample 150 sentences from the test set. Annotators are asked to annotate all arguments to each sentence following two steps. First, determine whether a given sentence is positive or negative, and assign event types to positive sentences. Next, label all related arguments and their roles according to the event types for positive sentences. Two annotators will independently annotate each sentence, and discuss to achieve an agreement. The inter-annotator agreement is 87\% for event types and 79\% for arguments.
 
 \begin{table}[h]
 \small
@@ -125,9 +129,7 @@ Table~\ref{tab:2} shows the system performances in the manual evaluation. We can
 \end{figure}
 
 Moreover, %manual evaluation may help us to gain a deep insight about our data and models. We 
- we manually check the top 5 event types whose EC F1 scores by BLSTM-CRF-ILP$_{multi}$ differ greatly between automatic evaluation and manual evaluation, summarized in Table~\ref{tab:4}.
-
-We find that most of the performance differences are caused by data generation. Figure~\ref{fig:1} examples two types of errors in data construction. Several automatically labeled sentences do not imply any event while still matching all key properties of some CVT entries. For an example, although the phrase \emph{the car} in S5 matches a film name, it does not indicate this film, and there is no explicit evidence indicating that an actor starred in this film. This is a bottleneck of our data generation strategy. During manual evaluation, we find 16 negative sentences which are mistakenly labeled as positive, and our model manages to rectify 6 of them.
+ we manually check the top 5 event types whose EC F1 scores by BLSTM-CRF-ILP$_{multi}$ differ greatly between automatic evaluation and manual evaluation, summarized in Table~\ref{tab:4}. We find that most of the performance differences are caused by data generation. Figure~\ref{fig:1} examples two types of errors in data construction. Several automatically labeled sentences do not imply any event while still matching all key properties of some CVT entries. For an example, although the phrase \emph{the car} in S5 matches a film name, it does not indicate this film, and there is no explicit evidence indicating that an actor starred in this film. This is a bottleneck of our data generation strategy. During manual evaluation, we find 16 negative sentences which are mistakenly labeled as positive, and our model manages to rectify 6 of them.
 
 Remarkably, our BLSTM-CRF-ILP$_{multi}$ model can help find more CVT instances that are not referenced in Freebase. There are two events mentioned in S6, while the arguments of the second event do not match any existing CVT instances in Freebase, which should be populated into Freebase. %leading to a missing event in data generation. 
 This phenomenon suggests that learning from distant supervision provided by Freebase, our model can help complete and update properties of Freebase instances in return.
@@ -149,10 +151,10 @@ This phenomenon suggests that learning from distant supervision provided by Free
 \caption{The difference of EC F1 scores (by BLSTM-CRF-ILP$_{multi}$) between automatic and manual evaluation for top 5 event types.\label{tab:4}}
 \end{table}
 
+\vspace{-.3em}
 \subsection{Tables as Indirect Supervision}
 To investigate the applicability of our approach to other structured tables besides Freebase CVT tables, %we conduct manual evaluation on 
 we automatically build a new dataset with the supervision provided by Wikipedia tables, which may characterize events about acquisition, winning of the Olympics games, and winning prestigious awards in entertainment (Table~\ref{tab:6}). 
-
 
 \begin{table}[h]
 \small
@@ -163,7 +165,7 @@ we automatically build a new dataset with the supervision provided by Wikipedia 
 	Olympics & 2503 & 1460 & 77.2 & 64.5 & 38.6 \\ \hline
 	Awards & 3039 & 2217 & 95.0 & 82.8 & 58.6 \\ \hline
 \end{tabular}
-\caption{Statistics of the Table dataset and performance of our model. \textit{Entr.} is the number of table entries. \textit{Sent.} is the size of training set.\label{tab:6}}
+\caption{Statistics of the Table dataset and performance of our model. \textit{Entr.} is the number of table entries. \textit{Sent.} is number of positive instances.\label{tab:6}}
 \end{table}
 
 We train our BLSTM-CRF-ILP$_{multi}$ on this dataset and evaluate it on 100 manually annotated sentences.

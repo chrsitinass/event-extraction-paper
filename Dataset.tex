@@ -58,8 +58,7 @@ For example, S1 and S2 are positive examples with their arguments in italics and
 \textbf{S4}: On April 29th, Elizabeth II and Prince Philip witnessed the marriage of Prince William.
 \end{quote}
 
-The selection strategy for key arguments for a given event type is based on two criteria: (1) \emph{Key arguments should have high importance value}; (2) \emph{Key arguments should include time-related arguments}.
-
+The selection strategy for key arguments of a given event type is based on two criteria: (1) \emph{Key arguments should have high importance value}; (2) \emph{Key arguments should include time-related arguments}.
 % \paragraph{H1: Positive sentences should contain all properties}
 
 % For example, S1 contains all the properties of instance $m.07bh4j7$ with a CVT type \emph{business.acquisition}, we thus consider S1 as a positive sample implying an event about \emph{business.acquisition}, and \emph{BMC Software}, \emph{Remedy Corp}, \emph{Service Management Business Unit} and \emph{2004} will be labeled as the arguments that play the role of \emph{acquiring\_company}, \emph{company\_acquired}, \emph{divisions\_formed}, and \emph{date} in this event, respectively.
@@ -67,7 +66,7 @@ The selection strategy for key arguments for a given event type is based on two 
 % In practice, we find that \emph{H1} is too strict to include many positive sentences like S2. 
 % We thus relax \emph{H1} by replacing \textbf{all properties} with \textbf{all key properties}. 
 
-The \emph{Importance value} of an argument $arg$ (e.g., \emph{date}) to its event type $cvt$ (e.g., \emph{business.acquisition}) can be defined as:
+The \emph{importance value} of an argument $arg$ (e.g., \emph{date}) to its event type $cvt$ (e.g., \emph{business.acquisition}) can be defined as:
 \begin{equation}
 	I_{cvt, arg} = log \frac{count(cvt, arg)}{count(cvt) \times count(arg)} 
 \end{equation}
@@ -76,7 +75,7 @@ where $count(cvt)$ is the number of instances of type $cvt$, $count(arg)$ is the
 % We discover that for many CVTs, their key properties do not take into account time property. 
 % time-related argument叫得对吗？本来的想说的是，取值为时间的argument
 Although time-related arguments are often missing in the currently imperfect KBs, 
-they are indeed crucial to indicate the actual occurrence of an event, e.g., S3, containing \emph{Microsoft} as \emph{acquiring\_company} and \emph{aQuantive} as \emph{company\_acquired} but without time-related arguments, will be mistakenly considered as a positive sample for event \emph{business.accquisition}.
+they are indeed crucial to indicate the actual occurrence of an event, e.g., S3, containing \emph{Microsoft} as \emph{acquiring\_company} and \emph{aQuantive} as \emph{company\_acquired} but without time-related arguments, will be mistakenly considered as a positive sample for event \emph{business.acquisition}.
 % while contain all key properties of an instance, resulting in mistaking \emph{Microsoft} for \emph{acquiring\_company}, and \emph{aQuantive} for \emph{company\_acquired}. 
 % By adding \emph{date} to the set of key properties, S3 will be filtered. 
 
@@ -89,7 +88,7 @@ In Figure~\ref{fig:2}, both \emph{Prince Philip} and \emph{marriage} can be matc
 
 \begin{figure}
 \centering
-	\includegraphics[width=.47\textwidth]{temp_figure2}
+	\includegraphics[width=.48\textwidth]{temp_figure2}
 	\caption{The dependency tree of S4, which partially matches an entry of \emph{people.marriage}. \label{fig:2}}
 \end{figure}
 
