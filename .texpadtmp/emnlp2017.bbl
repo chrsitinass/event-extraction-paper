@@ -1,6 +1,15 @@
 \begin{thebibliography}{}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
+\bibitem[{Aguilar et~al.(2014)Aguilar, Beller, McNamee, Van~Durme, Strassel,
+  Song, and Ellis}]{aguilar2014comparison}
+Jacqueline Aguilar, Charley Beller, Paul McNamee, Benjamin Van~Durme, Stephanie
+  Strassel, Zhiyi Song, and Joe Ellis. 2014.
+\newblock A comparison of the events and relations across ace, ere, tac-kbp,
+  and framenet annotation standards.
+\newblock In {\em Proceedings of the Second Workshop on EVENTS: Definition,
+  Detection, Coreference, and Representation\/}. pages 45--53.
+
 \bibitem[{Ahn(2006)}]{ahn2006stages}
 David Ahn. 2006.
 \newblock The stages of event extraction.

@@ -1,19 +1,20 @@
 \begin{abstract}
-Existing event extraction systems are typically investigated in the supervised
-learning paradigm. The effectiveness of these systems heavily relies on the quality of
-expert-annotated datasets which still require a costly and time-consuming process to construct.
- As a result, the built datasets
-often only cover a limited variety of event types, making the
-learned event extractor hard to generalize. In this paper, we address the problem
+Existing event extraction systems are typically investigated in a supervised
+learning paradigm, which heavily relies on the quality of
+expert-annotated datasets, % which still require a costly and time-consuming process to construct.
+% As a result, the built datasets
+usually covering a limited variety of event types and making the learned event extractor hard to generalize. 
+In this paper, we address the problem
 of automatically building event extractors for rich event types with little expert involvement.
 We achieve this by employing distant supervision to automatically create event annotations from
-unlabelled data using structured knowledge bases. We then propose a novel
-neural network model with ILP-based inference, committing to detecting events of various types and extracting
-their corresponding arguments involved.
-We evaluate our approach by automatically collecting training data for many event types from Freebase, where
-our proposed extraction model is designed to identify both typed event mentions and typed arguments. Both automatic and
-manual evaluations demonstrate that it is possible to learn to effectively extract
-various events without human-annotated training data.
+unlabelled text using structured knowledge bases or tables. We propose a novel
+neural network model with post inference, to detect multi-typed event mentions with corresponding arguments.
+%We evaluate our approach by investigating the feasibility of  automatically collecting training data for event extraction from both 
+Experiments on the datasets collected through Freebase and Wikipedia tables show
+that 
+%our proposed extraction model is designed to identify both typed event mentions and typed arguments. 
+%Both automatic and manual evaluations demonstrate that 
+it is possible to learn to extract events of rich types without human-annotated training data.
 
 %
 %and rely on expert-annotated datasets, with limited event types.

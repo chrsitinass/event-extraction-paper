@@ -31,14 +31,14 @@ At each time $t$, a forward LSTM layer takes $\textbf{x}_t$ as input and compute
 % \vspace{-.8em}
 \paragraph{CRF}
 A straightforward way to find the label sequence for given sentence is to choose the 
-best label for each word individually according to the LSTM output.  
+best label for each word individually according to the BLSTM output.  
 %with maximum probability by LSTM as the prediction for each word. 
 However, this greedy strategy ignores the dependencies between labels, thus can not guarantee the best sequence.  %this independent labeling strategy 
 %is limited especially when there are strong dependencies and constraints between labels. 
 %To model the correlations between labels, 
-Therefore, we introduce a CRF layer over the LSTM output, which is admittedly effective in various sequence labeling tasks~\cite{collobert2011natural,huang2015bidirectional}. %, such as POS tagging and NER .
+Therefore, we introduce a CRF layer over the BLSTM output, which is admittedly effective in various sequence labeling tasks~\cite{collobert2011natural,huang2015bidirectional}. %, such as POS tagging and NER .
 
-We consider $\textbf{P}$ to be a matrix of confidence scores output by LSTM, and the element $\textbf{P}_{i,j}$ of the matrix denotes the probability of the label $j$ for the $i$-th word in a sentence. The CRF layer takes a transition matrix $\textbf{A}$ as parameter, where $\textbf{A}_{i,j}$ represents the score of a transition from label $i$ to label $j$. The score of a sentence $\bm{w}$ along with a path of labels $\bm{y} = \{y_1, y_2, \ldots, y_n\}$ is measured by the sum of LSTM outputs and transition scores: 
+We consider $\textbf{P}$ to be a matrix of confidence scores output by BLSTM, and the element $\textbf{P}_{i,j}$ of the matrix denotes the probability of the label $j$ for the $i$-th word in a sentence. The CRF layer takes a transition matrix $\textbf{A}$ as parameter, where $\textbf{A}_{i,j}$ represents the score of a transition from label $i$ to label $j$. The score of a sentence $\bm{w}$ along with a path of labels $\bm{y} = \{y_1, y_2, \ldots, y_n\}$ is measured by the sum of BLSTM outputs and transition scores: 
 \begin{equation}
 	score(\bm{w}, \bm{y}) = \sum\limits_{i=0}^n\textbf{P}_{i, y_i} + \sum\limits_{i=1}^n\textbf{A}_{y_i, y_{i+1}},
 \end{equation}
