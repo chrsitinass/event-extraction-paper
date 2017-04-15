@@ -1,21 +1,36 @@
 \section{Our Approach}
+%\subsection{Our Task}
+Previous event extraction systems mainly rely on explicit trigger identification to detect the occurrence of an event, 
+which is then used to decide its event type and label its arguments.
+In our automatically collected dataset, where human-labeled event triggers are unavailable, we argue that \textbf{key arguments} can play the same role as explicit event triggers. 
+We thus treat the event extraction as a pipeline of the following two steps: 
+\begin{itemize}
+	\item \textbf{Event detection}: to identify key arguments in a sentence. If a sentence contains \textbf{all key arguments} of a specific event type, it will be considered to imply an event mention of this specified type. 
+	\item \textbf{Argument detection}: to identify other non-key arguments for each event in the sentence.
+\end{itemize}
+%
+Take S1 as an example, in event detection, \emph{Remedy Corp}, \emph{BMC Software}, and \emph{2004} could be identified as \emph{company\_acquired}, \emph{acquiring\_company}, and \emph{date}, respectively, indicating that S1 may mention a \emph{business.acquisition} event. 
+During argument detection, \emph{Service Management Business Unit} should be identified as \emph{divisions\_formed}, 
+which, together with the detected key arguments, form a full mention for a \emph{business.acquisition} event.  
+
 \subsection{Event Detection \label{evede}}
 %Before presenting our model, 
-Next, we first present our solution for multi-words arguments, and then introduce each component in our model.
-%LSTM-CRF-ILP$_{multi}$ model, from bottom to top.
+%Our event detector is an BLSTM-CRF model with ILP-based inference.  
+%We first present our solution for multi-words arguments, and then introduce each component in our model.
+%BLSTM-CRF-ILP$_{multi}$ model, from bottom to top.
 
 % \vspace{-.8em}
-\paragraph{Tagging scheme}
-There 68\%  of  arguments in our dataset consisting of more than one word. To address this issue, we model each subtask in a sequence labeling paradigm rather than word-level classifications. Each word in the given sentence is tagged with the \texttt{BIO} scheme, where each token is labeled as \texttt{B-role} if it is the beginning of an event argument with its corresponding role \texttt{role}, or \texttt{I-role} if it is inside an argument, or \texttt{O} otherwise. 
+%\paragraph{Tagging scheme}
+68\%  of  arguments in our dataset consist of more than one word. We thus formulate each subtask in a sequence labeling paradigm rather than word-level classifications. Each word in the given sentence is tagged with the \texttt{BIO} scheme, where each token is labeled as \texttt{B-role} if it is the beginning of an event argument with its corresponding role \texttt{role}, or \texttt{I-role} if it is inside an argument, or \texttt{O} otherwise.  We accordingly propose a novel BLSTM-CRF model with ILP-based inference to detect and organize key arguments.
 
 % \vspace{-.7em}
-\paragraph{LSTM}
+\paragraph{BLSTM}
 Long Short-Term Memory Network (LSTM)~\cite{hochreiter1997long} is a natural fit for sequence labeling, which maintains a memory based on historical contextual information. Formally, given a sentence $\bm{w} = \{w_1, w_2, \dots, w_n\}$ of length $n$, we use $\textbf{x}_t$ to represent feature vector, e.g., word embeddings, corresponding to the $t$-th word $w_t$. At each time step $t$, an LSTM unit takes $\textbf{x}_t$ as input and computes the output vector $\textbf{h}_t$ through several multiplicative gates. The output vector is fed into a softmax layer to estimate a probability distribution over all possible labels.
 
 % \vspace{-.8em}
 \paragraph{CRF}
 A straightforward way to find the label sequence for given sentence is to choose the 
-best label for each word individually according to LSTM output.  
+best label for each word individually according to the LSTM output.  
 %with maximum probability by LSTM as the prediction for each word. 
 However, this greedy strategy ignores the dependencies between labels, thus can not guarantee the best sequence.  %this independent labeling strategy 
 %is limited especially when there are strong dependencies and constraints between labels. 
@@ -30,9 +45,9 @@ During test, given a sentence $\bm{w}$, we adopt the Viterbi algorithm~\cite{rab
 
 % \vspace{-.8em}
 \paragraph{ILP-based Post Inference}
-Basically, event detection is a structure prediction problem, while the output sequences of LSTM-CRF do not necessarily satisfy the structural constraints. For instance, regardless of how many key arguments are correctly identified by LSTM-CRF, if there is one key argument missing, this detection should be considered as failed. 
+Basically, event detection is a structure prediction problem, while the output sequences of BLSTM-CRF do not necessarily satisfy the structural constraints. For instance, regardless of how many key arguments are correctly identified by BLSTM-CRF, if there is one key argument missing, this detection should be considered as failed. 
 
-We thus propose to apply Integer Linear Programming (ILP) to further globally optimize the LSTM-CRF output  to produce the best label sequence.
+We thus propose to apply Integer Linear Programming (ILP) to further globally optimize the BLSTM-CRF output  to produce the best label sequence.
 Formally, let $\mathcal{L}$ be the set of possible argument labels. For each word $w_i$ in the sentence $\bm{w}$ and a pair of labels $ \langle l, l' \rangle \in \mathcal{L} \times \mathcal{L}$, we create a binary variable ${v_{i,l,l'} \in \{0, 1\}}$, denoting whether or not the $i$-th word $w_i$ is tagged as label $l$ and its following word $w_{i+1}$ is tagged as label $l'$ at the same time. The objective of ILP is to maximize the overall score of the variables as:\begin{displaymath}
 	\sum\nolimits_{i, l, l'}v_{i,l,l'} * (\textbf{P}_{i,l}+\textbf{A}_{l,l'}) .
 \end{displaymath}
@@ -68,6 +83,8 @@ than a threshold $\lambda$, and consider all solutions $\{\bm{s}^1, \bm{s}^2, \l
 We use Gurobi~\cite{gurobi} as our ILP solver and set $\lambda=0.05 \times n$, which averagely produce~1.04 optimal sequences for each sentence. 
 
 \subsection{Argument Detection}
-After event detection, a sentence will be classified into different event types, and labeled with its corresponding key arguments. The next step is argument detection, which aims to identify the remaining non-key arguments in the sentence.  
+After event detection, a sentence will be classified into different event types, and labeled with its corresponding key arguments. 
+%The next step is argument detection, which 
+Next, we will identify the remaining non-key arguments in the sentence.  
 
-We adopt the same LSTM-CRF architecture (in Sec~\ref{evede}) for argument detection, where we encode the event label (output of event detection) of each word into a key-argument feature vector through a look-up table, and concatenate it with the original word embedding as the input to the new LSTM-CRF. Note that we do not need post inference here.
+We adopt the same BLSTM-CRF architecture (in Sec~\ref{evede}) for argument detection, where we encode the event label (output of event detection) of each word into a key-argument feature vector through a look-up table, and concatenate it with the original word embedding as the input to the new BLSTM-CRF. Note that we do not need post inference here.
